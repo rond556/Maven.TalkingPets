@@ -9,14 +9,14 @@ import java.util.Scanner;
 public class MainApplication {
 
 
-    ArrayList<String> petList = new ArrayList<String>();
+    private static ArrayList<Pets> petList = new ArrayList<Pets>();
     private static Scanner scanner = new Scanner(System.in);
     private static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
         Integer numberOfPets = petQuestion();
-        String listOfPets = petListGenerator(numberOfPets);
-        System.out.println(listOfPets);
+        ArrayList<Pets> petList = petListGenerator(numberOfPets);
+        System.out.println(petList);
     }
 
     public static Integer petQuestion() {
@@ -24,14 +24,16 @@ public class MainApplication {
         return scanner.nextInt();
     }
 
-    public static String petListGenerator(Integer numberOfPets) {
+    public static ArrayList<Pets> petListGenerator(Integer numberOfPets) {
+        Pets pet = new Pets(null,null);
         for (int i = 1; i <= numberOfPets; i++) {
             String typeOfPet = getPetType();
-            sb.append(typeOfPet).append(" - ");
             String nameOfPet = getPetName();
-            sb.append(nameOfPet).append("\n");
+            pet.setName(nameOfPet);
+            pet.setType(typeOfPet);
+            petList.add(pet);
         }
-        return sb.toString();
+        return petList;
     }
 
     public static String getPetType(){

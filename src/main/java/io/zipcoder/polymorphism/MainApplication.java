@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * Created by leon on 11/6/17.
+ * Coding created by Ron Duwell
  */
 public class MainApplication {
 
@@ -16,7 +17,7 @@ public class MainApplication {
     public static void main(String[] args) {
         Integer numberOfPets = petQuestion();
         ArrayList<Pets> petList = petListGenerator(numberOfPets);
-        System.out.println(petList);
+        System.out.println(petList.toString());
     }
 
     public static Integer petQuestion() {
@@ -25,8 +26,8 @@ public class MainApplication {
     }
 
     public static ArrayList<Pets> petListGenerator(Integer numberOfPets) {
-        Pets pet = new Pets(null,null);
         for (int i = 1; i <= numberOfPets; i++) {
+            Pets pet = new Pets(null,null);
             String typeOfPet = getPetType();
             String nameOfPet = getPetName();
             pet.setName(nameOfPet);
@@ -38,13 +39,13 @@ public class MainApplication {
 
     public static String getPetType(){
         System.out.println("What kind of pet do you own?");
-        String typeOfPet = scanner.nextLine();
+        String typeOfPet = scanner.next();
         return typeOfPet;
     }
 
     public static String getPetName(){
         System.out.println("What is its name?");
-        String nameOfPet = scanner.nextLine();
+        String nameOfPet = scanner.next();
         return nameOfPet;
     }
 }

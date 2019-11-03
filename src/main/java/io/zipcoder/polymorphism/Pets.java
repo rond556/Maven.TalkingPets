@@ -36,6 +36,6 @@ public class Pets {
 
 
     public String speak(){
-        return "Huh?";
+        return "huh?";
     }
 }

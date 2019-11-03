@@ -17,8 +17,12 @@ public class MainApplication {
     public static void main(String[] args) {
         Integer numberOfPets = petQuestion();
         ArrayList<Pets> petList = petListGenerator(numberOfPets);
-        System.out.println(petList.toString());
-    }
+        for(int i = 0; i < petList.size(); i++){
+            Pets pet = petList.get(i);
+            System.out.println(String.format("Your number %d pet is a %s named %s.", i + 1, pet.getType(), pet.getName()));
+            System.out.println("It says " + pet.speak());
+            }
+        }
 
     public static Integer petQuestion() {
         System.out.println("How many pets do you own?\nPlease answer in numerics.");
@@ -27,12 +31,24 @@ public class MainApplication {
 
     public static ArrayList<Pets> petListGenerator(Integer numberOfPets) {
         for (int i = 1; i <= numberOfPets; i++) {
-            Pets pet = new Pets(null,null);
             String typeOfPet = getPetType();
             String nameOfPet = getPetName();
-            pet.setName(nameOfPet);
-            pet.setType(typeOfPet);
-            petList.add(pet);
+
+            if(typeOfPet.equals("Dog") || typeOfPet.equals("dog")){
+                Pets pet = new Dog(nameOfPet,typeOfPet);
+                petList.add(pet);
+            }
+            else if(typeOfPet.equals("Cat") || typeOfPet.equals("cat")){
+                Pets pet = new Cat(nameOfPet,typeOfPet);
+                petList.add(pet);
+            }
+            else if(typeOfPet.equals("Goldfish") || typeOfPet.equals("goldfish")){
+                Pets pet = new Goldfish(nameOfPet,typeOfPet);
+                petList.add(pet);
+            } else {
+                Pets pet = new Pets(nameOfPet,typeOfPet);
+                petList.add(pet);
+            }
         }
         return petList;
     }

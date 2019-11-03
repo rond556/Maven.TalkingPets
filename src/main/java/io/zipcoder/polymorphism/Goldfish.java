@@ -1,6 +1,10 @@
 package io.zipcoder.polymorphism;
 
-public class Goldfish {
+public class Goldfish extends Pets {
 
-    public String speak(){return "Glub";}
+    public Goldfish(String name, String type) {
+        super(name, type);
+    }
+
+    public String speak(){return "glub.";}
 }

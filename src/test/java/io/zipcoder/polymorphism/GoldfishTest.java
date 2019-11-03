@@ -8,7 +8,7 @@ public class GoldfishTest {
     @Test
     public void speakTest(){
         //Given
-        Goldfish goldie = new Goldfish();
+        Goldfish goldie = new Goldfish(null,null);
         String expected = "Glub";
 
         //When

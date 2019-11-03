@@ -6,5 +6,5 @@ public class Cat extends Pets {
         super(name, type);
     }
 
-    public String speak(){return "Meow";}
+    public String speak(){return "meow.";}
 }
